@@ -96,9 +96,15 @@ import UIKit
         (viewWithTag(1) as? OTPTextField)?.becomeFirstResponder()
     }
     
-    public func updateFields() {
+    public func setBackgroundColor(_ color: UIColor?) {
         self.subviews.forEach { view in
-            (view as? OTPTextField)?.layer.sublayers?.first?.backgroundColor = self.filledBackgroundColor.cgColor
+            (view as? OTPTextField)?.layer.sublayers?.first?.backgroundColor = (color ?? .clear)?.cgColor
+        }
+    }
+    
+    public func setTextColor(_ color: UIColor?) {
+        self.subviews.forEach { view in
+            (view as? OTPTextField)?.textColor = color
         }
     }
     
@@ -135,6 +141,7 @@ import UIKit
         otpField.delegate = self
         otpField.tag = index + 1
         otpField.font = fieldFont
+        otpField.textColor = fieldTextColor
         
         // Set input type for OTP fields
         switch otpInputType {
