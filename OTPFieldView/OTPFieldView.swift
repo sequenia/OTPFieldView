@@ -72,7 +72,6 @@ import UIKit
     public var shouldAllowIntermediateEditing: Bool = true
     public var defaultBackgroundColor: UIColor = UIColor.clear
     public var filledBackgroundColor: UIColor = UIColor.clear
-    public var errorBackgroundColor: UIColor = UIColor.clear
     public var defaultBorderColor: UIColor = UIColor.gray
     public var filledBorderColor: UIColor = UIColor.clear
     public var errorBorderColor: UIColor?
@@ -99,7 +98,7 @@ import UIKit
     
     public func updateFields() {
         self.subviews.forEach { view in
-            (view as? OTPTextField)?.layer.sublayers?.first?.backgroundColor = self.errorBackgroundColor.cgColor
+            (view as? OTPTextField)?.layer.sublayers?.first?.backgroundColor = self.filledBackgroundColor.cgColor
         }
     }
     
