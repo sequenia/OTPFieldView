@@ -219,6 +219,12 @@ import UIKit
                     otpField?.backgroundColor = fieldBackgroundColor
                     otpField?.layer.borderColor = fieldBorderColor.cgColor
                 }
+
+                if let tag = otpField?.tag,
+                   tag >= 1,
+                    otpField?.isFirstResponder ?? false {
+                    _ = delegate?.shouldBecomeFirstResponderForOTP(otpTextFieldIndex: tag - 1)
+                }
             }
         }
         else {
